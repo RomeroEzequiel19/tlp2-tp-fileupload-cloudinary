@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   archivos.forEach((archivos) => {
     registros += `
       <tr class='text-center'>
-          <td><img src="images/${archivos.ruta}" alt="fotos" style="width:200px; height:150px;"></td>
-          <td>${archivos.ruta}</td>
+          <td><a href="${archivos.ruta}" target="_blank" rel="noopener noreferrer">Link de la Imagen</a></td>
           <td>
           <a href="/actualizar-archivo/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
           <a href="/api-eliminar/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>

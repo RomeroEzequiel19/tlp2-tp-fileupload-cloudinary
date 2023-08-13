@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+<main class="container">
+  <a class="btn btn-secondary my-5 p-1 px-5" href="/listado-cloudinary"
+    >Inicio</a
+  >
+
+  <form
+    id="formNuevoArchivoCloudinary"
+    class="rounded border p-3"
+    enctype="multipart/form-data"
+  >
+    <h3 class="mb-3 text-center bg-primary text-light rounded p-2">
+      Nuevo Archivo Cloudinary
+    </h3>
+    <div class="mb-3">
+      <label for="archivo" class="form-label">Archivo</label>
+      <input type="file" class="form-control" id="file" name="file" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</main>
+
+<script src="/js/crear-cloudinary.js"></script>
+
+<%- include('partials/footer') %>
