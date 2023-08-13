@@ -14,6 +14,11 @@ ctrl.renderFormNuevoArchivo = (req, res) => {
   res.render("crear-archivo");
 };
 
+ctrl.renderFormEditarArchivo = (req, res) => {
+  const { id } = req.params;
+  res.render("editar-archivo", { id });
+};
+
 //Acciones
 
 ctrl.obtenerArchivos = async (req, res) => {
@@ -54,6 +59,41 @@ ctrl.crearArchivo = async (req, res) => {
   } catch (error) {
     console.log("Error al crear las Archivos", error);
     res.status(500).json(error);
+  }
+};
+
+ctrl.actualizarArchivo = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const file = req.files.file;
+    const filename = file.name;
+
+    const archivo = await Archivo.update(
+      {
+        ruta: filename,
+      },
+      {
+        where: {
+          id,
+        },
+      }
+    );
+
+    file.mv("public/images/" + filename, function (err) {
+      if (err) {
+        console.log("Error: " + err);
+        return res.status(500).json(err);
+      }
+      return res.status(201).json({
+        message: "Archivo actualizado con éxito",
+      });
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Error al actualizar archivo",
+    });
   }
 };
 

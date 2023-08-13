@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <td>
           <a href="/actualizar-archivo/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
           <button onclick=eliminarArchivo(event) class="btn btn-danger btn-sm" data-id="${archivos.id}">Eliminar</button>
-          </td>
-          
+          </td> 
       </tr>
       `;
   });
