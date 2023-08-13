@@ -10,6 +10,7 @@ const {
   renderFormNuevoArchivo,
   renderFormEditarArchivo,
   actualizarArchivo,
+  eliminarArchivo,
 } = require("../controllers/archivos.controllers");
 
 //Renderizar pantallas
@@ -22,5 +23,6 @@ router.get("/actualizar-archivo/:id", renderFormEditarArchivo);
 router.get("/api-archivo", obtenerArchivos);
 router.post("/api-archivo", crearArchivo);
 router.put("/api-archivo/:id", actualizarArchivo);
+router.get("/api-eliminar/:id", eliminarArchivo);
 
 module.exports = router;

@@ -16,10 +16,29 @@ document.addEventListener("DOMContentLoaded", async () => {
           <td><img src="images/${archivos.ruta}" alt="fotos" style="width:200px; height:150px;"></td>
           <td>
           <a href="/actualizar-archivo/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
-          <button onclick=eliminarArchivo(event) class="btn btn-danger btn-sm" data-id="${archivos.id}">Eliminar</button>
+          <a href="/api-eliminar/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
           </td> 
       </tr>
       `;
   });
   tbody.innerHTML = registros;
 });
+
+const eliminarArchivo = async (event) => {
+  console.log(event);
+  const id = event.target.dataset.id;
+
+  const response = await fetch(`/api-archivo/${id}`, {
+    method: "DELETE",
+  });
+
+  const data = await response.json();
+
+  alert(data.message);
+
+  window.location.href = "/listado-archivo";
+};
+
+function eliminar() {
+  alert("Eliminar");
+}

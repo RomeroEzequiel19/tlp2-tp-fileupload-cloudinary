@@ -97,4 +97,21 @@ ctrl.actualizarArchivo = async (req, res) => {
   }
 };
 
+ctrl.eliminarArchivo = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const archivoEliminado = await Archivo.destroy({
+      where: { id },
+    });
+    return archivoEliminado.json({
+      message: "El archivo se eliminó correctamente",
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Error al eliminar el archivo",
+    });
+  }
+};
+
 module.exports = ctrl;
