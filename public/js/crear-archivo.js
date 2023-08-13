@@ -18,14 +18,8 @@ formCrearArchivo.addEventListener("submit", async (e) => {
     if (response.status !== 200 && response.status !== 201) {
       console.log("Error al cargar la imagen");
     }
-    swal({
-      title: "Realizado",
-      text: "Haz clic en el botón",
-      icon: "success",
-    });
-    setTimeout(() => {
-      window.location.href = "/listado-archivo";
-    }, 2000);
+    alert(data.message);
+    window.location.href = "/listado-archivo";
   } catch (error) {
     console.log("Se ha encontrado un error: " + error);
   }
