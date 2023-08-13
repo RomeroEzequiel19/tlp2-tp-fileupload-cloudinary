@@ -23,6 +23,6 @@ router.get("/actualizar-archivo/:id", renderFormEditarArchivo);
 router.get("/api-archivo", obtenerArchivos);
 router.post("/api-archivo", crearArchivo);
 router.put("/api-archivo/:id", actualizarArchivo);
-router.get("/api-eliminar/:id", eliminarArchivo);
+router.delete("/api-archivo/:id", eliminarArchivo);
 
 module.exports = router;

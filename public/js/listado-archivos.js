@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   archivos.forEach((archivos) => {
     registros += `
       <tr class='text-center'>
-          <td><img src="images/${archivos.ruta}" alt="fotos" style="width:200px; height:150px;"></td>
+          <td><img src="images/${archivos.ruta}" alt="fotos" style="width:100px; height:60px;"></td>
           <td>
           <a href="/actualizar-archivo/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
-          <a href="/api-eliminar/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
+          <button id='eliminarArchivo' class='btn btn-sm btn-danger' data-id="${archivos.id}">Eliminar</button>
           </td> 
       </tr>
       `;
@@ -38,7 +38,3 @@ const eliminarArchivo = async (event) => {
 
   window.location.href = "/listado-archivo";
 };
-
-function eliminar() {
-  alert("Eliminar");
-}

@@ -14,6 +14,10 @@ const Archivo = sequelize.define(
       type: DataTypes.STRING(200),
       allowNull: false,
     },
+    tipo_subida: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
 
     createdAt: {
       type: DataTypes.DATE,

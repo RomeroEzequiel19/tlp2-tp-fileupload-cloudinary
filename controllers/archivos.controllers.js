@@ -23,7 +23,11 @@ ctrl.renderFormEditarArchivo = (req, res) => {
 
 ctrl.obtenerArchivos = async (req, res) => {
   try {
-    const archivos = await Archivo.findAll();
+    const archivos = await Archivo.findAll({
+      where: {
+        tipo_subida: "fileupload",
+      },
+    });
 
     return res.json(archivos);
   } catch (error) {
@@ -36,6 +40,7 @@ ctrl.obtenerArchivos = async (req, res) => {
 
 ctrl.crearArchivo = async (req, res) => {
   try {
+    const tipo_subida = "fileupload";
     console.log(req.files);
     const file = req.files.file;
 
@@ -43,6 +48,7 @@ ctrl.crearArchivo = async (req, res) => {
     console.log(filename);
     const nuevoArchivo = await Archivo.create({
       ruta: filename,
+      tipo_subida: tipo_subida,
     });
 
     file.mv("public/images/" + filename, function (err) {

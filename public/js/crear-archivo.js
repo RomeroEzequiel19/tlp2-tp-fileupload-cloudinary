@@ -1,7 +1,6 @@
 const formCrearArchivo = document.querySelector("#formNuevoArchivo");
-alert("Hola");
+
 formCrearArchivo.addEventListener("submit", async (e) => {
-  alert("Hola2");
 
   e.preventDefault();
 
