@@ -44,7 +44,7 @@ const Archivo = sequelize.define(
 );
 
 // Crear tabla si no existe
-Archivo.sync({ force: true }).then(() => {
+Archivo.sync({ force: false }).then(() => {
   console.log("Tabla de Archivos creada");
 });
 

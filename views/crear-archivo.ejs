@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+<a class="btn btn-secondary m-5 p-1" href="/listado-archivo">Inicio</a>
+
+<form
+  id="formNuevoArchivo"
+  class="rounded border p-3"
+  enctype="multipart/form-data"
+>
+  <h3 class="mb-3 text-center bg-primary text-light rounded p-2">
+    Nueva Reserva
+  </h3>
+  <div class="mb-3">
+    <label for="nombres" class="form-label">Nombres</label>
+    <input type="file" class="form-control" id="file" name="file" required />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+
+<script src="/js/crear-archivo.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<%- include('partials/footer') %>
