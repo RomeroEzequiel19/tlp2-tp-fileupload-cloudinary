@@ -1,8 +1,9 @@
+const Archivo = require("../models/Archivo");
 const ctrl = {};
 
 ctrl.renderPrincipal = (req, res) => {
-    res.render("index");
-  };
+  res.render("index");
+};
 
 ctrl.renderListaArchivos = (req, res) => {
   res.render("listado-archivo");
