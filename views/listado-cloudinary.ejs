@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<div class="container">
+  <div class="row mt-5">
+    <h1 class="text-center border-botton">Lista de Archivos</h1>
+    <div class="col">
+      <div class="col-md-3 mb-2">
+        <a href="/crear-cloudinary" class="btn btn sm btn-primary" id
+          >Nuevo Archivo</a
+        >
+        <a href="/" class="btn btn-info text-light">Inicio</a>
+      </div>
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th>Imágen</th>
+            <th>Direccion</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="listadoCloudinary"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="/js/listado-cloudinary.js"></script>
+
+<%- include('partials/footer') %>
