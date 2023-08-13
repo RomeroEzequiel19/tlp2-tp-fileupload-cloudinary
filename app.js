@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use(require("./routes/archivos.routes"));
+app.use(require("./routes/cloudinary.routes"));
 
 app.use((req, res, next) => {
   return res.status(404).render("404");
