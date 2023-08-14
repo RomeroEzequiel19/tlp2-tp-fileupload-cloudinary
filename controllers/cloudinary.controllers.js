@@ -108,7 +108,7 @@ ctrl.eliminarArchivo = async (req, res) => {
   const archivoEliminado = await Archivo.destroy({
     where: { id },
   });
-  res.render("listado-cloudinary");
+  res.render("");
 };
 
 module.exports = ctrl;

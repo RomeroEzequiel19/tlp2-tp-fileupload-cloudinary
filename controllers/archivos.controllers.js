@@ -110,7 +110,7 @@ ctrl.eliminarArchivo = async (req, res) => {
   const archivoEliminado = await Archivo.destroy({
     where: { id },
   });
-  res.render("listado-archivo");
+  res.render("");
 };
 
 module.exports = ctrl;
