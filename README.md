@@ -1,4 +1,4 @@
-# Examen Parcial
+# Subir Archivos con cloudinary y flieupload
 
 Instalación:
 
@@ -15,6 +15,8 @@ DB_PASSWORD=
 DB_HOST=
 DB_PORT=
 DB_DIALECT=
+CLOUDINARY_API = 
+CLOUDINARY_API_SECRET = 
 ```
 
 Ejecucion en Desarrollo
