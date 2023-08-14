@@ -13,16 +13,20 @@ ctrl.renderFormNuevoCloudinary = (req, res) => {
   res.render("crear-cloudinary");
 };
 
-ctrl.renderFormEditarArchivo = (req, res) => {
+ctrl.renderFormEditarCloudinary = (req, res) => {
   const { id } = req.params;
-  res.render("editar-archivo", { id });
+  res.render("editar-cloudinary", { id });
 };
 
 //Acciones
 
 ctrl.obtenerCloudinary = async (req, res) => {
   try {
-    const archivos = await Archivo.findAll();
+    const archivos = await Archivo.findAll({
+      where: {
+        tipo_subida: "cloudinary",
+      },
+    });
 
     return res.json(archivos);
   } catch (error) {
@@ -36,37 +40,65 @@ ctrl.obtenerCloudinary = async (req, res) => {
 ctrl.crearCloudinary = async (req, res) => {
   try {
     console.log(req.files);
-    const file = req.files.file;
+    const imagen = req.files.file;
+    const tipo_subida = "cloudinary";
 
-    const uploader = cloudinary.uploader;
-
-    const result = await uploader.upload(file.tempFilePath, {
+    let result = await cloudinary.uploader.upload(imagen.tempFilePath, {
       public_id: `${Date.now()}`,
       resource_type: "auto",
       folder: "images",
     });
 
     const ruta = result.url;
-    console.log(ruta);
 
     const nuevoArchivo = await Archivo.create({
       ruta: ruta,
+      tipo_subida: tipo_subida,
     });
 
-    console.log(nuevoArchivo);
-
-    file.mv(result, function (err) {
-      if (err) {
-        console.log("Error: " + err);
-        return res.status(500).json(err);
-      }
-    });
     return res.status(201).json({
       message: "Archivo creado con éxito",
     });
   } catch (error) {
     console.log("Error al crear las Archivos", error);
     res.status(500).json(error);
+  }
+};
+
+ctrl.actualizarCloudinary = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const imagen = req.files.file;
+    const tipo_subida = "cloudinary";
+
+    const result = await cloudinary.uploader.upload(imagen.tempFilePath, {
+      public_id: `${Date.now()}`,
+      resource_type: "auto",
+      folder: "images",
+    });
+
+    const ruta = result.url;
+
+    const archivo = await Archivo.update(
+      {
+        ruta,
+        tipo_subida,
+      },
+      {
+        where: {
+          id,
+        },
+      }
+    );
+    return res.status(201).json({
+      message: "Archivo actualizado con éxito",
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Error al actualizar archivo",
+    });
   }
 };
 

@@ -6,20 +6,20 @@ const {
   obtenerCloudinary,
   crearCloudinary,
   renderFormNuevoCloudinary,
-  renderFormEditarArchivo,
-  actualizarArchivo,
+  renderFormEditarCloudinary,
+  actualizarCloudinary,
   eliminarArchivo,
 } = require("../controllers/cloudinary.controllers");
 
 //Renderizar pantallas
 router.get("/listado-cloudinary", renderListaCloudinary);
 router.get("/crear-cloudinary", renderFormNuevoCloudinary);
-// router.get("/actualizar-archivo/:id", renderFormEditarArchivo);
+router.get("/actualizar-cloudinary/:id", renderFormEditarCloudinary);
 
 //Funciones
 router.get("/api-cloudinary", obtenerCloudinary);
 router.post("/api-cloudinary", crearCloudinary);
-// router.put("/api-archivo/:id", actualizarArchivo);
+router.put("/api-cloudinary/:id", actualizarCloudinary);
 // router.get("/api-eliminar/:id", eliminarArchivo);
 
 module.exports = router;
