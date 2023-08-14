@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <td><img src="images/${archivos.ruta}" alt="fotos" style="width:100px; height:60px;"></td>
           <td>
           <a href="/actualizar-archivo/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
-          <button id='eliminarArchivo' class='btn btn-sm btn-danger' data-id="${archivos.id}">Eliminar</button>
+          <a href="/eliminar-archivo/${archivos.id}" class='btn btn-sm btn-danger'>Eliminar</a>
           </td> 
       </tr>
       `;
@@ -24,17 +24,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   tbody.innerHTML = registros;
 });
 
-const eliminarArchivo = async (event) => {
-  console.log(event);
-  const id = event.target.dataset.id;
+// const eliminarArchivo = async (event) => {
+//   console.log(event);
+//   const id = event.target.dataset.id;
 
-  const response = await fetch(`/api-archivo/${id}`, {
-    method: "DELETE",
-  });
+//   const response = await fetch(`/api-archivo/${id}`, {
+//     method: "DELETE",
+//   });
 
-  const data = await response.json();
+//   const data = await response.json();
 
-  alert(data.message);
+//   alert(data.message);
 
-  window.location.href = "/listado-archivo";
-};
+//   window.location.href = "/listado-archivo";
+// };

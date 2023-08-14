@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       <tr class='text-center'>
           <td><a href="${archivos.ruta}" target="_blank" rel="noopener noreferrer">Link de la Imagen</a></td>
           <td>
-          <a href="/actualizar-archivo/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
+          <a href="/actualizar-cloudinary/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
           <a href="/api-eliminar/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
           </td> 
       </tr>

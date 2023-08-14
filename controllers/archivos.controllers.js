@@ -78,6 +78,7 @@ ctrl.actualizarArchivo = async (req, res) => {
     const archivo = await Archivo.update(
       {
         ruta: filename,
+        tipo_subida: "fileupload",
       },
       {
         where: {

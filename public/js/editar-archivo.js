@@ -10,7 +10,7 @@ formArchivo.addEventListener("submit", async (e) => {
 
   try {
     //Se envian los datos al servidor
-    const response = await fetch(`/api-cloudinary/${archivoId}`, {
+    const response = await fetch(`/api-archivo/${archivoId}`, {
       method: "PUT",
       body: formData,
     });
@@ -19,7 +19,7 @@ formArchivo.addEventListener("submit", async (e) => {
       console.log("error al subir el archivo");
     }
     alert(data.message);
-    window.location.href = "/listado-cloudinary";
+    window.location.href = "/listado-archivo";
   } catch (error) {
     console.log("Se ha encontrado un error: " + error);
   }
