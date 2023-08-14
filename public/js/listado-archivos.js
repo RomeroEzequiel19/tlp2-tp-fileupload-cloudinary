@@ -23,18 +23,3 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   tbody.innerHTML = registros;
 });
-
-// const eliminarArchivo = async (event) => {
-//   console.log(event);
-//   const id = event.target.dataset.id;
-
-//   const response = await fetch(`/api-archivo/${id}`, {
-//     method: "DELETE",
-//   });
-
-//   const data = await response.json();
-
-//   alert(data.message);
-
-//   window.location.href = "/listado-archivo";
-// };

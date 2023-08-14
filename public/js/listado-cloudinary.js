@@ -16,29 +16,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           <td><a href="${archivos.ruta}" target="_blank" rel="noopener noreferrer">Link de la Imagen</a></td>
           <td>
           <a href="/actualizar-cloudinary/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
-          <a href="/api-eliminar/${archivos.id}" class='btn btn-sm btn-warning'>Editar</a>
+          <a href="/eliminar-cloudinary/${archivos.id}" class='btn btn-sm btn-danger'>Eliminar</a>
           </td> 
       </tr>
       `;
   });
   tbody.innerHTML = registros;
 });
-
-const eliminarArchivo = async (event) => {
-  console.log(event);
-  const id = event.target.dataset.id;
-
-  const response = await fetch(`/api-archivo/${id}`, {
-    method: "DELETE",
-  });
-
-  const data = await response.json();
-
-  alert(data.message);
-
-  window.location.href = "/listado-archivo";
-};
-
-function eliminar() {
-  alert("Eliminar");
-}

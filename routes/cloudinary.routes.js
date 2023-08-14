@@ -20,6 +20,6 @@ router.get("/actualizar-cloudinary/:id", renderFormEditarCloudinary);
 router.get("/api-cloudinary", obtenerCloudinary);
 router.post("/api-cloudinary", crearCloudinary);
 router.put("/api-cloudinary/:id", actualizarCloudinary);
-// router.get("/api-eliminar/:id", eliminarArchivo);
+router.get("/eliminar-cloudinary/:id", eliminarArchivo);
 
 module.exports = router;

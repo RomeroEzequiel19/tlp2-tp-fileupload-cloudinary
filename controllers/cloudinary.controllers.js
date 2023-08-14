@@ -102,4 +102,13 @@ ctrl.actualizarCloudinary = async (req, res) => {
   }
 };
 
+ctrl.eliminarArchivo = async (req, res) => {
+  const { id } = req.params;
+
+  const archivoEliminado = await Archivo.destroy({
+    where: { id },
+  });
+  res.render("listado-cloudinary");
+};
+
 module.exports = ctrl;

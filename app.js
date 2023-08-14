@@ -19,7 +19,11 @@ const port = process.env.PORT || 3000;
 
 // Middlewares
 app.use(cors());
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 app.use(morgan("dev"));
 app.use(
   upload({
